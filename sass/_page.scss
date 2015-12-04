@@ -1,0 +1,48 @@
+$small-padding: 12px;
+$large-padding: $small-padding * 2;
+
+body {
+  background: $background-color;
+}
+
+h1 {
+  font-size: 50px;
+}
+
+.junk {
+  font-size: 30px;
+  font-family: arial;
+  background-color: tomato;
+}
+
+@mixin anchor-styles($color) {
+  color: $color;
+
+  &:hover {
+    color: $color + 50;
+  }
+}
+
+.some-link {
+  @include anchor-styles(green);
+  margin: 100px;
+  padding: 250px;
+}
+
+li {
+  a {
+    @include anchor-styles(gray);
+  }
+}
+
+.special {
+  background: black;
+  color: white;
+}
+
+.extra-special {
+  @extend .special;
+  border: 3px solid tomato;
+  padding: $large-padding;
+  color: hotpink;
+}
